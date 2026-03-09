@@ -11,7 +11,7 @@ disableKinds:
   - term
 
 params:
-  description: "Author and Professor"
+  description: "Author and Professor T.R. Brooks"
 
 menu:
   main:
