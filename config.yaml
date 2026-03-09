@@ -11,7 +11,7 @@ disableKinds:
   - term
 
 params:
-  description: "Author website built with AuthorPage"
+  description: "Author and Professor"
 
 menu:
   main:
