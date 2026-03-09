@@ -2,25 +2,23 @@
 # ABOUTME: Edit this file to personalize your website.
 
 # Your full name as you want it displayed on the site
-name: "Jane Author"
+name: "T.R. Brooks"
 
 # A short tagline shown under your name on the home page
-tagline: "Author of The Midnight Garden"
+tagline: "Author and Professor of Psychology"
 
 # Your author bio — shown on the About page
-bio: "Jane writes literary fiction exploring memory, place, and the stories we tell ourselves. She lives in Portland, Oregon with two cats and an unreasonable number of houseplants."
+bio: "I live in the Boise, Idaho area where write, teach full time at a small college, and test the patience of my family with an accordion."
 
 # Path to your author photo (upload the image to static/images/)
-photo: "images/author.jpg"
+photo: "images/headshot.jfif"
 
 # Your social media links (delete any you don't use)
 social:
-  twitter: "https://twitter.com/janeauthor"
-  instagram: "https://instagram.com/janeauthor"
-  goodreads: "https://goodreads.com/janeauthor"
-
+  bluesky: "https://bsky.app/profile/username.bsky.social"
+  
 # Email address shown on the Contact page
-contact_email: "jane@example.com"
+contact_email: "trbrooks@gmail.com"
 
 # Newsletter signup form — appears in the footer and contact page of every theme.
 #
