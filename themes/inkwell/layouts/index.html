@@ -1,0 +1,44 @@
+{{/* ABOUTME: Home page template for the Inkwell theme. */}}
+{{/* ABOUTME: Displays hero section with author info and featured book below. */}}
+
+{{ define "main" }}
+
+{{/* Hero section: author photo, name, tagline */}}
+{{ partial "hero.html" . }}
+
+{{/* Featured book section */}}
+{{ with hugo.Data.books }}
+  {{ range where . "featured" true }}
+  {{ $book := . }}
+  <section class="featured-book fade-in-late">
+    <div class="container">
+      <p class="featured-book__label">Latest Book</p>
+
+      {{/* Cover with fallback */}}
+      <div class="featured-book__cover-wrapper">
+        {{ with .cover }}
+        <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Cover of {{ $book.title }}">
+        {{ else }}
+        <div class="featured-book__cover-placeholder">{{ .title }}</div>
+        {{ end }}
+      </div>
+
+      <h2 class="featured-book__title">{{ .title }}</h2>
+
+      {{ with .tagline }}
+      <p class="featured-book__tagline">{{ . }}</p>
+      {{ end }}
+
+      {{ with .buy_links }}
+      <div class="featured-book__links">
+        {{ range . }}
+        <a href="{{ .url }}" rel="noopener noreferrer" target="_blank">{{ .label }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+{{ end }}
+
+{{ end }}

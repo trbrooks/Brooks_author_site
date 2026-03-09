@@ -1,0 +1,33 @@
+{{/* ABOUTME: Sticky site header with bold navigation and optional "Latest Release" accent link. */}}
+{{/* ABOUTME: Author name displayed as logo in display font with clear, bold nav items. */}}
+
+<header class="site-header">
+  <div class="container container--wide">
+    <div class="site-header__inner">
+      {{ with hugo.Data.site }}
+      <a href="{{ site.Home.RelPermalink }}" class="site-title">{{ .name }}</a>
+      {{ else }}
+      <a href="{{ site.Home.RelPermalink }}" class="site-title">{{ site.Title }}</a>
+      {{ end }}
+
+      {{ if site.Menus.main }}
+      <nav class="site-nav" aria-label="Main navigation">
+        {{ range site.Menus.main }}
+        <a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} class="is-active" aria-current="page"{{ end }}>{{ .Name }}</a>
+        {{ end }}
+
+        {{/* "Latest Release" accent link if a featured book exists */}}
+        {{ with hugo.Data.books }}
+          {{ range where . "featured" true }}
+            {{ with .buy_links }}
+              {{ with index . 0 }}
+              <a href="{{ .url }}" class="site-nav__latest" rel="noopener noreferrer" target="_blank">Latest Release</a>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </nav>
+      {{ end }}
+    </div>
+  </div>
+</header>

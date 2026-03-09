@@ -1,0 +1,23 @@
+{{/* ABOUTME: Books listing page layout with a dense grid of dossier-styled book cards. */}}
+{{/* ABOUTME: Loops over hugo.Data.books and renders each using the book-card partial. */}}
+
+{{ define "main" }}
+<div class="container container--wide">
+  <div class="page-content">
+    <div class="page-content__header">
+      <h1 class="page-content__title">{{ .Title }}</h1>
+      <div class="venetian-divider" aria-hidden="true"></div>
+    </div>
+
+    {{ with hugo.Data.books }}
+    <div class="books-grid">
+      {{ range . }}
+        {{ partial "book-card.html" . }}
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="empty-state">No case files on record. Check back soon.</p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

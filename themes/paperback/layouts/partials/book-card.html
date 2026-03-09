@@ -1,0 +1,42 @@
+{{/* ABOUTME: Single book display card partial with cover-forward design and tilt-on-hover effect. */}}
+{{/* ABOUTME: Featured books get a "STAFF PICK" sticker badge; all cards have buy-link buttons. */}}
+
+<article class="book-card{{ if .featured }} book-card--featured{{ end }} slide-up">
+  <div class="book-card__cover-wrapper">
+    {{/* "STAFF PICK" badge on featured books */}}
+    {{ if .featured }}
+    <span class="book-card__badge">Staff Pick</span>
+    {{ end }}
+
+    {{/* Cover image with fallback */}}
+    {{ with .cover }}
+    <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Cover of {{ $.title }}" class="book-card__cover-img">
+    {{ else }}
+    <div class="book-card__cover-placeholder">{{ .title }}</div>
+    {{ end }}
+  </div>
+
+  <div class="book-card__info">
+    {{/* Title */}}
+    <h2 class="book-card__title">{{ .title }}</h2>
+
+    {{/* Tagline */}}
+    {{ with .tagline }}
+    <p class="book-card__tagline">{{ . }}</p>
+    {{ end }}
+
+    {{/* Year */}}
+    {{ with .published }}
+    <p class="book-card__year">{{ . }}</p>
+    {{ end }}
+
+    {{/* Buy links as buttons */}}
+    {{ with .buy_links }}
+    <div class="book-card__links">
+      {{ range . }}
+      <a href="{{ .url }}" class="btn btn--sm" rel="noopener noreferrer" target="_blank">{{ .label }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</article>

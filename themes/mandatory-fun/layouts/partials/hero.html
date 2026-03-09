@@ -1,0 +1,27 @@
+{{/* ABOUTME: Home page hero section for Mandatory Fun theme. */}}
+{{/* ABOUTME: Big bold author name with playful geometric accents and author photo. */}}
+
+{{ with hugo.Data.site }}
+<section class="hero pop-in">
+  <div class="container hero__layout">
+
+    {{/* Author photo with geometric frame */}}
+    <div class="hero__photo-wrapper pop-in-delayed">
+      {{ with .photo }}
+      <img class="hero__photo" src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Photo of {{ $.Site.Title }}">
+      {{ else }}
+      <div class="hero__photo-placeholder" aria-hidden="true"></div>
+      {{ end }}
+    </div>
+
+    <div class="hero__text">
+      <h1 class="hero__name pop-in">{{ .name }}</h1>
+
+      {{ with .tagline }}
+      <p class="hero__tagline pop-in-delayed">{{ . }}</p>
+      {{ end }}
+    </div>
+
+  </div>
+</section>
+{{ end }}

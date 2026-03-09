@@ -1,0 +1,36 @@
+{{/* ABOUTME: Books listing page layout with featured books first, then backlist. */}}
+{{/* ABOUTME: Loops over hugo.Data.books and renders each using the book-card partial in a shelf grid. */}}
+
+{{ define "main" }}
+<div class="container container--wide">
+  <div class="page-content">
+    <div class="page-content__header slide-up">
+      <h1 class="page-content__title">{{ .Title }}</h1>
+    </div>
+
+    {{ with hugo.Data.books }}
+      {{/* Featured books first */}}
+      {{ $featured := where . "featured" true }}
+      {{ if $featured }}
+      <div class="books-grid books-grid--featured">
+        {{ range $featured }}
+          {{ partial "book-card.html" . }}
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{/* Backlist books */}}
+      {{ $backlist := where . "featured" false }}
+      {{ if $backlist }}
+      <div class="books-grid">
+        {{ range $backlist }}
+          {{ partial "book-card.html" . }}
+        {{ end }}
+      </div>
+      {{ end }}
+    {{ else }}
+    <p class="empty-state slide-up">No books listed yet. Check back soon.</p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

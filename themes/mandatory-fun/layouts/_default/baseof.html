@@ -1,0 +1,18 @@
+{{/* ABOUTME: Base HTML layout for the Mandatory Fun theme. */}}
+{{/* ABOUTME: Wraps all pages with head, header, main content block, and footer. */}}
+
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+
+  <main class="page-wrapper">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+</body>
+</html>

@@ -1,0 +1,32 @@
+# ABOUTME: Main Hugo configuration file for the author website.
+# ABOUTME: Controls site-wide settings, theme selection, and menu structure.
+
+baseURL: "/"
+languageCode: "en-us"
+title: "Author Site"
+theme: "inkwell"
+
+disableKinds:
+  - taxonomy
+  - term
+
+params:
+  description: "Author website built with AuthorPage"
+
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "Books"
+      url: "/books/"
+      weight: 2
+    - name: "Blog"
+      url: "/blog/"
+      weight: 3
+    - name: "About"
+      url: "/about/"
+      weight: 4
+    - name: "Contact"
+      url: "/contact/"
+      weight: 5

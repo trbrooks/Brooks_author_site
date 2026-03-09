@@ -1,0 +1,12 @@
+# ABOUTME: Theme manifest for the Paperback theme ("Terminal Bestseller").
+# ABOUTME: Defines theme metadata and the Gate B12 color palette.
+
+name: "Paperback"
+description: "Bold and commercial — airport bookstore energy, dust jackets meet billboard design"
+preview: "/images/themes/paperback-preview.png"
+colors:
+  primary: "#1B2D45"
+  secondary: "#F5F1EB"
+  background: "#FFFFFF"
+  accent: "#E8453C"
+  gold: "#D4A03C"

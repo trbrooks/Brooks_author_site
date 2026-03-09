@@ -1,0 +1,31 @@
+{{/* ABOUTME: Home page hero partial with author photo, name, and tagline. */}}
+{{/* ABOUTME: Centered book-page layout with generous vertical space, like a chapbook title page. */}}
+
+<section class="hero">
+  <div class="container">
+    {{ with hugo.Data.site }}
+
+      {{/* Author photo with graceful fallback */}}
+      {{ with .photo }}
+      <div class="hero__photo-wrapper fade-in">
+        <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Photo of {{ hugo.Data.site.name }}">
+      </div>
+      {{ else }}
+      <div class="hero__photo-wrapper fade-in">
+        <div class="hero__photo-placeholder"></div>
+      </div>
+      {{ end }}
+
+      {{/* Author name */}}
+      {{ with .name }}
+      <h1 class="hero__name fade-in-delayed">{{ . }}</h1>
+      {{ end }}
+
+      {{/* Tagline */}}
+      {{ with .tagline }}
+      <p class="hero__tagline fade-in-late">{{ . }}</p>
+      {{ end }}
+
+    {{ end }}
+  </div>
+</section>

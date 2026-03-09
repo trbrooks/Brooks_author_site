@@ -1,0 +1,30 @@
+{{/* ABOUTME: Site footer partial with monospace text and // separators. */}}
+{{/* ABOUTME: Displays social links and copyright in the dark noir aesthetic. */}}
+
+<footer class="site-footer">
+  <div class="venetian-divider" aria-hidden="true"></div>
+  <div class="container">
+    {{/* Newsletter signup — only renders if newsletter_action is set in site.yaml */}}
+    {{ with hugo.Data.site.newsletter_action }}
+    <div class="site-footer__newsletter">
+      <p class="site-footer__newsletter-heading">// Dispatches //</p>
+      <p class="site-footer__newsletter-text">New case files and classified updates, delivered by wire.</p>
+      <form class="newsletter-form" action="{{ . }}" method="post">
+        <input type="email" name="email" placeholder="your@email.com" class="newsletter-form__input" aria-label="Email address for newsletter" required>
+        <button class="newsletter-form__btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    {{ end }}
+
+    {{ with hugo.Data.site }}
+      {{ with .social }}
+      <div class="site-footer__social">
+        {{ partial "social-links.html" . }}
+      </div>
+      {{ end }}
+      <p class="site-footer__copyright">&copy; {{ now.Year }} {{ .name }}. Case closed.</p>
+    {{ else }}
+      <p class="site-footer__copyright">&copy; {{ now.Year }} {{ site.Title }}</p>
+    {{ end }}
+  </div>
+</footer>

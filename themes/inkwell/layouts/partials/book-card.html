@@ -1,0 +1,40 @@
+{{/* ABOUTME: Single book display card partial for the books grid. */}}
+{{/* ABOUTME: Shows cover image (with fallback), title, tagline, and buy links; featured books are visually distinguished. */}}
+
+<article class="book-card{{ if .featured }} book-card--featured{{ end }} fade-in">
+  {{/* Featured label */}}
+  {{ if .featured }}
+  <p class="book-card__featured-label">Featured</p>
+  {{ end }}
+
+  {{/* Cover image with fallback */}}
+  <div class="book-card__cover-wrapper">
+    {{ with .cover }}
+    <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Cover of {{ $.title }}">
+    {{ else }}
+    <div class="book-card__cover-placeholder">{{ .title }}</div>
+    {{ end }}
+  </div>
+
+  {{/* Title */}}
+  <h2 class="book-card__title">{{ .title }}</h2>
+
+  {{/* Tagline */}}
+  {{ with .tagline }}
+  <p class="book-card__tagline">{{ . }}</p>
+  {{ end }}
+
+  {{/* Year */}}
+  {{ with .published }}
+  <p class="book-card__year">{{ . }}</p>
+  {{ end }}
+
+  {{/* Buy links */}}
+  {{ with .buy_links }}
+  <div class="book-card__links">
+    {{ range . }}
+    <a href="{{ .url }}" rel="noopener noreferrer" target="_blank">{{ .label }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+</article>

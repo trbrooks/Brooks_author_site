@@ -1,0 +1,21 @@
+{{/* ABOUTME: Single page/post template for blog entries and general content. */}}
+{{/* ABOUTME: Clean reading experience with narrow column, display font title, and small-caps date. */}}
+
+{{ define "main" }}
+<div class="container">
+  <article class="page-content">
+    <header class="page-content__header fade-in">
+      <h1 class="page-content__title">{{ .Title }}</h1>
+      {{ with .Date }}
+      <time class="page-content__date" datetime="{{ .Format "2006-01-02" }}">
+        {{ .Format "January 2, 2006" }}
+      </time>
+      {{ end }}
+    </header>
+
+    <div class="page-content__body fade-in-delayed">
+      {{ .Content }}
+    </div>
+  </article>
+</div>
+{{ end }}

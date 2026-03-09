@@ -1,0 +1,25 @@
+{{/* ABOUTME: Blog post list item partial styled like a journal entry. */}}
+{{/* ABOUTME: Displays date in small caps, title as a link, and optional summary. */}}
+
+<li class="post-list__item fade-in">
+  {{/* Date in small caps */}}
+  {{ with .Date }}
+  <time class="post-list__date" datetime="{{ .Format "2006-01-02" }}">
+    {{ .Format "January 2, 2006" }}
+  </time>
+  {{ end }}
+
+  {{/* Title as a link */}}
+  <h2 class="post-list__title">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h2>
+
+  {{/* Summary / description */}}
+  {{ with .Description }}
+  <p class="post-list__summary">{{ . }}</p>
+  {{ else }}
+    {{ with .Summary }}
+    <p class="post-list__summary">{{ . }}</p>
+    {{ end }}
+  {{ end }}
+</li>

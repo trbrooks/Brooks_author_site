@@ -1,0 +1,34 @@
+# ABOUTME: Author profile and site-wide information.
+# ABOUTME: Edit this file to personalize your website.
+
+# Your full name as you want it displayed on the site
+name: "Jane Author"
+
+# A short tagline shown under your name on the home page
+tagline: "Author of The Midnight Garden"
+
+# Your author bio — shown on the About page
+bio: "Jane writes literary fiction exploring memory, place, and the stories we tell ourselves. She lives in Portland, Oregon with two cats and an unreasonable number of houseplants."
+
+# Path to your author photo (upload the image to static/images/)
+photo: "images/author.jpg"
+
+# Your social media links (delete any you don't use)
+social:
+  twitter: "https://twitter.com/janeauthor"
+  instagram: "https://instagram.com/janeauthor"
+  goodreads: "https://goodreads.com/janeauthor"
+
+# Email address shown on the Contact page
+contact_email: "jane@example.com"
+
+# Newsletter signup form — appears in the footer and contact page of every theme.
+#
+# TO TURN OFF: Leave this blank ("") or delete the line entirely.
+#              The newsletter sections will not appear on your site.
+#
+# TO TURN ON:  Paste your newsletter provider's form action URL below.
+#   Buttondown:  "https://buttondown.com/api/emails/embed-subscribe/your-username"
+#   Mailchimp:   "https://yourname.us1.list-manage.com/subscribe/post?u=XXX&id=YYY"
+#   ConvertKit:  "https://app.convertkit.com/forms/your-form-id/subscriptions"
+newsletter_action: ""

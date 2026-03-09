@@ -1,0 +1,40 @@
+{{/* ABOUTME: About page layout for Mandatory Fun theme. */}}
+{{/* ABOUTME: Shows author photo, bio text, and social links in a bold layout. */}}
+
+{{ define "main" }}
+
+<section class="page-content about pop-in">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+
+    {{ with hugo.Data.site }}
+    {{ $site := . }}
+    <div class="about__layout">
+
+      {{/* Author photo */}}
+      <div class="about__photo-wrapper pop-in-delayed">
+        {{ with .photo }}
+        <img class="about__photo" src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Photo of {{ $site.name }}">
+        {{ else }}
+        <div class="about__photo-placeholder" aria-hidden="true"></div>
+        {{ end }}
+      </div>
+
+      <div class="about__content">
+        {{ with .bio }}
+        <div class="prose">
+          <p>{{ . }}</p>
+        </div>
+        {{ else }}
+        <p class="empty-state">Bio coming soon.</p>
+        {{ end }}
+
+        {{ partial "social-links.html" $site }}
+      </div>
+
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

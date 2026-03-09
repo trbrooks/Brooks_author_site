@@ -1,0 +1,45 @@
+{{/* ABOUTME: Contact page layout for Mandatory Fun theme. */}}
+{{/* ABOUTME: Shows author email and social links with bold styling. */}}
+
+{{ define "main" }}
+
+<section class="page-content contact pop-in">
+  <div class="container container--narrow">
+    <h1 class="page-title">{{ .Title }}</h1>
+
+    {{ with hugo.Data.site }}
+    {{ $site := . }}
+    <div class="contact__body">
+
+      {{ with .contact_email }}
+      <div class="contact__email-card pop-in-delayed">
+        <p class="contact__label">Send a message</p>
+        <a href="mailto:{{ . }}" class="contact__email">{{ . }}</a>
+      </div>
+      {{ end }}
+
+      {{ with .social }}
+      <div class="social-section pop-in-late">
+        <p class="contact__label">Find me online</p>
+        {{ partial "social-links.html" $site }}
+      </div>
+      {{ end }}
+
+      {{/* Newsletter CTA — only renders if newsletter_action is set in site.yaml */}}
+      {{ with $site.newsletter_action }}
+      <div class="newsletter-cta pop-in-late">
+        <h2 class="newsletter-cta__heading">Don't Miss the Fun</h2>
+        <p class="newsletter-cta__text">New releases, behind-the-scenes shenanigans, and the occasional unsolicited book recommendation.</p>
+        <form class="newsletter-form" action="{{ . }}" method="post">
+          <input type="email" name="email" placeholder="your@email.com" class="newsletter-form__input" aria-label="Email address for newsletter" required>
+          <button class="btn newsletter-form__btn" type="submit">Subscribe</button>
+        </form>
+      </div>
+      {{ end }}
+
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,20 @@
+{{/* ABOUTME: Site header partial with noir-styled navigation and // separators. */}}
+{{/* ABOUTME: Displays author name in Bebas Neue caps with IBM Plex Mono nav links. */}}
+
+<header class="site-header">
+  <div class="container container--wide">
+    {{ with hugo.Data.site }}
+    <a href="{{ site.Home.RelPermalink }}" class="site-title">{{ .name }}</a>
+    {{ else }}
+    <a href="{{ site.Home.RelPermalink }}" class="site-title">{{ site.Title }}</a>
+    {{ end }}
+
+    {{ if site.Menus.main }}
+    <nav class="site-nav" aria-label="Main navigation">
+      {{ range site.Menus.main }}
+      <a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} class="is-active" aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+    </nav>
+    {{ end }}
+  </div>
+</header>

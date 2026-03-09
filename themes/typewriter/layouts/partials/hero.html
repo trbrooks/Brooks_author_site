@@ -1,0 +1,64 @@
+{{/* ABOUTME: Home page hero partial with massive author name and typewriter tagline animation. */}}
+{{/* ABOUTME: Dark atmospheric layout with amber radial gradient, author photo, and featured book teaser. */}}
+
+<section class="hero">
+  <div class="hero__ambient" aria-hidden="true"></div>
+  <div class="container">
+    {{ with hugo.Data.site }}
+
+      {{/* Author photo with high-contrast treatment */}}
+      {{ with .photo }}
+      <div class="hero__photo-wrapper">
+        <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Photo of {{ hugo.Data.site.name }}">
+      </div>
+      {{ else }}
+      <div class="hero__photo-wrapper">
+        <div class="hero__photo-placeholder"></div>
+      </div>
+      {{ end }}
+
+      {{/* Author name in MASSIVE Bebas Neue caps */}}
+      {{ with .name }}
+      <h1 class="hero__name">{{ . }}</h1>
+      {{ end }}
+
+      {{/* Tagline with typewriter animation */}}
+      {{ with .tagline }}
+      <p class="hero__tagline typewriter">{{ . }}</p>
+      {{ end }}
+
+    {{ end }}
+  </div>
+
+  {{/* Featured book teaser */}}
+  {{ with hugo.Data.books }}
+    {{ range where . "featured" true }}
+    {{ $book := . }}
+    <div class="container">
+      <div class="hero__featured">
+        <p class="hero__featured-label">// CASE FILE // FEATURED //</p>
+
+        {{ with .cover }}
+        <div class="hero__featured-cover">
+          <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Cover of {{ $book.title }}">
+        </div>
+        {{ end }}
+
+        <h2 class="hero__featured-title">{{ .title }}</h2>
+
+        {{ with .description }}
+        <p class="hero__featured-description">{{ . }}</p>
+        {{ end }}
+
+        {{ with .buy_links }}
+        <div class="hero__featured-links">
+          {{ range . }}
+          <a href="{{ .url }}" rel="noopener noreferrer" target="_blank">{{ .label }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  {{ end }}
+</section>

@@ -1,0 +1,48 @@
+{{/* ABOUTME: About page layout with author photo, bio, and social links. */}}
+{{/* ABOUTME: Personality-forward layout with side-by-side photo and bio on larger screens. */}}
+
+{{ define "main" }}
+<div class="container container--wide">
+  <section class="about">
+    {{ with hugo.Data.site }}
+
+      <div class="about__layout slide-up">
+        {{/* Author photo with fallback */}}
+        <div class="about__photo-wrapper">
+          {{ with .photo }}
+          <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Photo of {{ hugo.Data.site.name }}">
+          {{ else }}
+          <div class="about__photo-placeholder"></div>
+          {{ end }}
+        </div>
+
+        <div class="about__content">
+          {{/* Author name */}}
+          {{ with .name }}
+          <h1 class="about__name">{{ . }}</h1>
+          {{ end }}
+
+          {{/* Bio */}}
+          {{ with .bio }}
+          <div class="about__bio">
+            <p>{{ . }}</p>
+          </div>
+          {{ end }}
+
+          {{/* Social links */}}
+          {{ with .social }}
+          <div class="social-section">
+            <p class="social-section__title">Find me online</p>
+            {{ partial "social-links.html" . }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+
+    {{ else }}
+      <h1 class="about__name slide-up">About</h1>
+      <p class="about__bio slide-up-delayed">Author information coming soon.</p>
+    {{ end }}
+  </section>
+</div>
+{{ end }}

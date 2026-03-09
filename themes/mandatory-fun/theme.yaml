@@ -1,0 +1,12 @@
+# ABOUTME: Theme manifest for Mandatory Fun — bold, playful author theme.
+# ABOUTME: Defines metadata and color palette for theme discovery and configuration.
+
+name: "Mandatory Fun"
+description: "Bold geometric playfulness meets readable warmth — corporate memo energy with birthday party colors"
+preview: "/images/themes/mandatory-fun-preview.png"
+colors:
+  primary: "#1b1340"
+  secondary: "#7c5cfc"
+  background: "#fffdf7"
+  accent: "#ff5252"
+  text: "#1b1340"

@@ -1,0 +1,19 @@
+{{/* ABOUTME: Site header/navigation for Mandatory Fun theme. */}}
+{{/* ABOUTME: Bold nav with coral accent underlines on active items. */}}
+
+<header class="site-header">
+  <div class="container">
+    <a href="{{ "" | relURL }}" class="site-title">
+      {{ with hugo.Data.site }}{{ .name }}{{ else }}{{ site.Title }}{{ end }}
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      {{ range site.Menus.main }}
+      <a href="{{ .URL | relURL }}"
+         {{ if $.IsMenuCurrent "main" . }}class="active" aria-current="page"{{ end }}>
+        {{ .Name }}
+      </a>
+      {{ end }}
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,22 @@
+{{/* ABOUTME: List template for blog index and section pages in the Paperback theme. */}}
+{{/* ABOUTME: Magazine-style layout with bold headlines and pull-quote aesthetic for descriptions. */}}
+
+{{ define "main" }}
+<div class="container">
+  <div class="page-content">
+    <div class="page-content__header slide-up">
+      <h1 class="page-content__title">{{ .Title }}</h1>
+    </div>
+
+    {{ if .Pages }}
+    <ul class="post-list">
+      {{ range .Pages.ByDate.Reverse }}
+        {{ partial "post-list.html" . }}
+      {{ end }}
+    </ul>
+    {{ else }}
+    <p class="empty-state slide-up">No posts yet. Check back soon.</p>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

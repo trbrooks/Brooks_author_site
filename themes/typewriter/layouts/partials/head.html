@@ -1,0 +1,18 @@
+{{/* ABOUTME: HTML <head> partial for the Typewriter theme. */}}
+{{/* ABOUTME: Loads Google Fonts (Bebas Neue, IBM Plex Mono, Special Elite), meta tags, and the theme stylesheet. */}}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta name="theme-color" content="#1A1714">
+
+{{/* Google Fonts: Bebas Neue + IBM Plex Mono + Special Elite */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+
+{{ $style := resources.Get "css/style.css" | minify | fingerprint }}
+{{ with $style }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{ end }}

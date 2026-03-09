@@ -1,0 +1,25 @@
+{{/* ABOUTME: Blog post list item styled as a typed report file entry. */}}
+{{/* ABOUTME: Displays date in file stamp format, title in Bebas Neue, and optional summary in monospace. */}}
+
+<li class="post-list__item">
+  {{/* Date as file stamp: "19.FEB.2026 // 23:47" */}}
+  {{ with .Date }}
+  <time class="post-list__date" datetime="{{ .Format "2006-01-02" }}">
+    {{ .Format "02.Jan.2006" | upper }} // {{ .Format "15:04" }}
+  </time>
+  {{ end }}
+
+  {{/* Title as a link */}}
+  <h2 class="post-list__title">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h2>
+
+  {{/* Summary / description */}}
+  {{ with .Description }}
+  <p class="post-list__summary">{{ . }}</p>
+  {{ else }}
+    {{ with .Summary }}
+    <p class="post-list__summary">{{ . }}</p>
+    {{ end }}
+  {{ end }}
+</li>

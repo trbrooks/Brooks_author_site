@@ -1,0 +1,22 @@
+{{/* ABOUTME: Single page/post template styled as a typed detective report. */}}
+{{/* ABOUTME: Monospace body text with comfortable reading width, Bebas Neue title, and file stamp date. */}}
+
+{{ define "main" }}
+<div class="container">
+  <article class="page-content">
+    <header class="page-content__header">
+      <h1 class="page-content__title">{{ .Title }}</h1>
+      {{ with .Date }}
+      <time class="page-content__date" datetime="{{ .Format "2006-01-02" }}">
+        {{ .Format "02.Jan.2006" | upper }} // {{ .Format "15:04" }}
+      </time>
+      {{ end }}
+      <div class="venetian-divider" aria-hidden="true"></div>
+    </header>
+
+    <div class="page-content__body">
+      {{ .Content }}
+    </div>
+  </article>
+</div>
+{{ end }}

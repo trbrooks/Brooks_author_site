@@ -1,0 +1,14 @@
+{{/* ABOUTME: Blog post list item partial for Mandatory Fun theme. */}}
+{{/* ABOUTME: Renders a single post entry with bold date badge and title link. */}}
+
+<article class="post-list__item">
+  <time class="post-list__date" datetime="{{ .Date.Format "2006-01-02" }}">
+    {{ .Date.Format "Jan 2, 2006" }}
+  </time>
+  <h3 class="post-list__title">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h3>
+  {{ with .Summary }}
+  <p class="post-list__summary">{{ . }}</p>
+  {{ end }}
+</article>

@@ -1,0 +1,25 @@
+{{/* ABOUTME: Blog post list item partial with magazine-style bold headlines. */}}
+{{/* ABOUTME: Pull-quote aesthetic with display font titles and accent-colored dates. */}}
+
+<li class="post-list__item slide-up">
+  {{/* Date */}}
+  {{ with .Date }}
+  <time class="post-list__date" datetime="{{ .Format "2006-01-02" }}">
+    {{ .Format "January 2, 2006" }}
+  </time>
+  {{ end }}
+
+  {{/* Title as a link */}}
+  <h2 class="post-list__title">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h2>
+
+  {{/* Summary / description with pull-quote feel */}}
+  {{ with .Description }}
+  <p class="post-list__summary">{{ . }}</p>
+  {{ else }}
+    {{ with .Summary }}
+    <p class="post-list__summary">{{ . }}</p>
+    {{ end }}
+  {{ end }}
+</li>

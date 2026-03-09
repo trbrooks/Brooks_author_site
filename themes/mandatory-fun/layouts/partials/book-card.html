@@ -1,0 +1,36 @@
+{{/* ABOUTME: Single book card partial for Mandatory Fun theme. */}}
+{{/* ABOUTME: Displays book cover, title, tagline and buy links with bold accent styling. */}}
+
+{{ $book := . }}
+<article class="book-card{{ if .featured }} book-card--featured{{ end }}">
+
+  {{/* Cover image with fallback */}}
+  <div class="book-card__cover">
+    {{ with .cover }}
+    <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Cover of {{ $book.title }}">
+    {{ else }}
+    <div class="book-card__cover-placeholder">{{ .title }}</div>
+    {{ end }}
+  </div>
+
+  <div class="book-card__info">
+    <h3 class="book-card__title">{{ .title }}</h3>
+
+    {{ with .tagline }}
+    <p class="book-card__tagline">{{ . }}</p>
+    {{ end }}
+
+    {{ with .published }}
+    <p class="book-card__year">{{ . }}</p>
+    {{ end }}
+
+    {{ with .buy_links }}
+    <div class="book-card__links">
+      {{ range . }}
+      <a href="{{ .url }}" class="btn btn--small" rel="noopener noreferrer" target="_blank">{{ .label }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+
+</article>

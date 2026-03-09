@@ -1,0 +1,12 @@
+# ABOUTME: Theme manifest for the Inkwell theme ("First Light Margins").
+# ABOUTME: Defines theme metadata and the Dawn Manuscript color palette.
+
+name: "Inkwell"
+description: "A poet's writing desk at dawn — manuscript margins meet Scandinavian minimalism"
+preview: "/images/themes/inkwell-preview.png"
+colors:
+  primary: "#2C2824"
+  secondary: "#8B7355"
+  background: "#FAF6F0"
+  accent: "#C4956A"
+  text: "#2C2824"

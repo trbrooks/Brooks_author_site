@@ -1,0 +1,14 @@
+{{/* ABOUTME: Reusable social links partial for Mandatory Fun theme. */}}
+{{/* ABOUTME: Renders social media links from site data with bold hover effects. */}}
+
+{{ with .social }}
+<div class="social-links">
+  {{ range $platform, $url := . }}
+  {{ if $url }}
+  <a href="{{ $url }}" class="social-links__item" rel="noopener noreferrer" target="_blank">
+    {{ $platform }}
+  </a>
+  {{ end }}
+  {{ end }}
+</div>
+{{ end }}

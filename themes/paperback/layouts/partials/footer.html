@@ -1,0 +1,30 @@
+{{/* ABOUTME: Full-width navy footer with newsletter signup, social links, and copyright. */}}
+{{/* ABOUTME: Prominent newsletter section with white/off-white text on deep navy background. */}}
+
+<footer class="site-footer">
+  <div class="container container--wide">
+    {{/* Newsletter signup section — only renders if newsletter_action is set in site.yaml */}}
+    {{ with hugo.Data.site.newsletter_action }}
+    <div class="site-footer__newsletter">
+      <h2 class="site-footer__newsletter-heading">Never Miss a Release</h2>
+      <p class="site-footer__newsletter-text">Join the mailing list for new book announcements and exclusive content.</p>
+      <form class="site-footer__newsletter-form" action="{{ . }}" method="post">
+        <input type="email" name="email" placeholder="your@email.com" class="site-footer__newsletter-input" aria-label="Email address for newsletter" required>
+        <button class="btn btn--accent" type="submit">Subscribe</button>
+      </form>
+    </div>
+    {{ end }}
+
+    {{/* Social links */}}
+    {{ with hugo.Data.site }}
+      {{ with .social }}
+      <div class="site-footer__social">
+        {{ partial "social-links.html" . }}
+      </div>
+      {{ end }}
+      <p class="site-footer__copyright">&copy; {{ now.Year }} {{ .name }}. All rights reserved.</p>
+    {{ else }}
+      <p class="site-footer__copyright">&copy; {{ now.Year }} {{ site.Title }}</p>
+    {{ end }}
+  </div>
+</footer>

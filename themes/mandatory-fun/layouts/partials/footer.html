@@ -1,0 +1,28 @@
+{{/* ABOUTME: Site footer for Mandatory Fun theme with bold top accent border. */}}
+{{/* ABOUTME: Shows copyright, author name, and social links. */}}
+
+<footer class="site-footer">
+  <div class="container">
+    {{/* Newsletter signup — only renders if newsletter_action is set in site.yaml */}}
+    {{ with hugo.Data.site.newsletter_action }}
+    <div class="site-footer__newsletter">
+      <h2 class="site-footer__newsletter-heading">Don't Miss the Fun</h2>
+      <p class="site-footer__newsletter-text">New releases, behind-the-scenes shenanigans, and the occasional unsolicited book recommendation.</p>
+      <form class="newsletter-form" action="{{ . }}" method="post">
+        <input type="email" name="email" placeholder="your@email.com" class="newsletter-form__input" aria-label="Email address for newsletter" required>
+        <button class="btn newsletter-form__btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    {{ end }}
+
+    {{ with hugo.Data.site }}
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">
+        &copy; {{ now.Year }} {{ .name }}. Built with joy and mild coercion.
+      </p>
+
+      {{ partial "social-links.html" . }}
+    </div>
+    {{ end }}
+  </div>
+</footer>

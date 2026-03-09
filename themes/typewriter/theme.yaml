@@ -1,0 +1,12 @@
+# ABOUTME: Theme manifest for the Typewriter theme ("Midnight Bureau").
+# ABOUTME: Defines theme metadata and the Case File color palette.
+
+name: "Typewriter"
+description: "A 1940s detective's office at midnight — pulp covers meet brutalist concrete"
+preview: "/images/themes/typewriter-preview.png"
+colors:
+  primary: "#E8DCC8"
+  secondary: "#6B5B4E"
+  background: "#1A1714"
+  accent: "#D4883A"
+  text: "#E8DCC8"

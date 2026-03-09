@@ -1,0 +1,46 @@
+{{/* ABOUTME: About page layout displaying author photo, bio, and social links. */}}
+{{/* ABOUTME: Reads from hugo.Data.site for author information with graceful fallbacks. */}}
+
+{{ define "main" }}
+<div class="container">
+  <section class="about">
+    {{ with hugo.Data.site }}
+
+      {{/* Author photo with fallback */}}
+      {{ with .photo }}
+      <div class="about__photo-wrapper fade-in">
+        <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Photo of {{ hugo.Data.site.name }}">
+      </div>
+      {{ else }}
+      <div class="about__photo-wrapper fade-in">
+        <div class="about__photo-placeholder"></div>
+      </div>
+      {{ end }}
+
+      {{/* Author name */}}
+      {{ with .name }}
+      <h1 class="about__name fade-in-delayed">{{ . }}</h1>
+      {{ end }}
+
+      {{/* Bio */}}
+      {{ with .bio }}
+      <div class="about__bio fade-in-delayed">
+        <p>{{ . }}</p>
+      </div>
+      {{ end }}
+
+      {{/* Social links */}}
+      {{ with .social }}
+      <div class="social-section fade-in-late">
+        <p class="social-section__title">Find me online</p>
+        {{ partial "social-links.html" . }}
+      </div>
+      {{ end }}
+
+    {{ else }}
+      <h1 class="about__name fade-in">About</h1>
+      <p class="about__bio fade-in-delayed">Author information coming soon.</p>
+    {{ end }}
+  </section>
+</div>
+{{ end }}

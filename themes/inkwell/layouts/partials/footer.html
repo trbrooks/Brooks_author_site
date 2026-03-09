@@ -1,0 +1,29 @@
+{{/* ABOUTME: Site footer partial with social links and copyright. */}}
+{{/* ABOUTME: Displays centered text links for social profiles and a copyright line. */}}
+
+<footer class="site-footer">
+  <div class="container">
+    {{/* Newsletter signup — only renders if newsletter_action is set in site.yaml */}}
+    {{ with hugo.Data.site.newsletter_action }}
+    <div class="site-footer__newsletter">
+      <h2 class="site-footer__newsletter-heading">Stay in Touch</h2>
+      <p class="site-footer__newsletter-text">New book announcements and occasional musings, delivered to your inbox.</p>
+      <form class="newsletter-form" action="{{ . }}" method="post">
+        <input type="email" name="email" placeholder="your@email.com" class="newsletter-form__input" aria-label="Email address for newsletter" required>
+        <button class="newsletter-form__btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    {{ end }}
+
+    {{ with hugo.Data.site }}
+      {{ with .social }}
+      <div class="site-footer__social">
+        {{ partial "social-links.html" . }}
+      </div>
+      {{ end }}
+      <p class="site-footer__copyright">&copy; {{ now.Year }} {{ .name }}. All rights reserved.</p>
+    {{ else }}
+      <p class="site-footer__copyright">&copy; {{ now.Year }} {{ site.Title }}</p>
+    {{ end }}
+  </div>
+</footer>

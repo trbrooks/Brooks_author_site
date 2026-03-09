@@ -1,0 +1,22 @@
+{{/* ABOUTME: List/section template for Mandatory Fun theme (blog index). */}}
+{{/* ABOUTME: Renders page title and iterates through posts using post-list partial. */}}
+
+{{ define "main" }}
+
+<section class="page-content pop-in">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+
+    {{ if .Pages }}
+    <div class="post-list">
+      {{ range .Pages }}
+      {{ partial "post-list.html" . }}
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="empty-state">No posts yet — check back soon!</p>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

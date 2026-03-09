@@ -1,0 +1,51 @@
+{{/* ABOUTME: Home page hero partial with featured book displayed large and bold. */}}
+{{/* ABOUTME: Split layout with text left and cover right on navy background, billboard energy. */}}
+
+<section class="hero">
+  <div class="container container--wide">
+    {{ with hugo.Data.books }}
+      {{ range where . "featured" true }}
+      {{ $book := . }}
+      <div class="hero__split">
+        <div class="hero__text slide-up">
+          {{ with hugo.Data.site }}
+          <p class="hero__kicker">The latest from {{ .name }}</p>
+          {{ end }}
+          <h1 class="hero__title">{{ .title }}</h1>
+          {{ with .tagline }}
+          <p class="hero__tagline">{{ . }}</p>
+          {{ end }}
+          {{ with .description }}
+          <p class="hero__description">{{ . }}</p>
+          {{ end }}
+          {{ with .buy_links }}
+          <div class="hero__cta">
+            {{ range . }}
+            <a href="{{ .url }}" class="btn{{ if eq .label "Amazon" }} btn--accent{{ else }} btn--outline{{ end }}" rel="noopener noreferrer" target="_blank">{{ .label }}</a>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+
+        <div class="hero__cover slide-up-delayed">
+          {{ with .cover }}
+          <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Cover of {{ $book.title }}" class="hero__cover-img">
+          {{ else }}
+          <div class="hero__cover-placeholder">{{ .title }}</div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    {{ else }}
+      {{/* Fallback: no books, show author info */}}
+      {{ with hugo.Data.site }}
+      <div class="hero__fallback slide-up">
+        <h1 class="hero__title">{{ .name }}</h1>
+        {{ with .tagline }}
+        <p class="hero__tagline">{{ . }}</p>
+        {{ end }}
+      </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>

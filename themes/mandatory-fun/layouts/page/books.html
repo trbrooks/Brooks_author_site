@@ -1,0 +1,22 @@
+{{/* ABOUTME: Books listing page for Mandatory Fun theme. */}}
+{{/* ABOUTME: Renders all books from data/books.yaml in a bold card grid. */}}
+
+{{ define "main" }}
+
+<section class="page-content pop-in">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+
+    {{ with hugo.Data.books }}
+    <div class="book-grid">
+      {{ range . }}
+      {{ partial "book-card.html" . }}
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="empty-state">No books listed yet — stay tuned!</p>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

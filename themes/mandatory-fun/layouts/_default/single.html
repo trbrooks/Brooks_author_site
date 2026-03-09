@@ -1,0 +1,23 @@
+{{/* ABOUTME: Single post/page template for Mandatory Fun theme. */}}
+{{/* ABOUTME: Renders article title, publication date, and full content. */}}
+
+{{ define "main" }}
+
+<article class="page-content pop-in">
+  <div class="container container--narrow">
+    <header class="article-header">
+      <h1 class="page-title">{{ .Title }}</h1>
+      {{ with .Date }}
+      <time class="article-date" datetime="{{ .Format "2006-01-02" }}">
+        {{ .Format "January 2, 2006" }}
+      </time>
+      {{ end }}
+    </header>
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </div>
+</article>
+
+{{ end }}

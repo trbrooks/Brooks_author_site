@@ -1,0 +1,44 @@
+{{/* ABOUTME: Contact page layout with email, social links, and newsletter CTA. */}}
+{{/* ABOUTME: Displays the author's contact email and social media links from hugo.Data.site. */}}
+
+{{ define "main" }}
+<div class="container">
+  <section class="contact">
+    <h1 class="contact__title slide-up">{{ .Title }}</h1>
+
+    {{ with hugo.Data.site }}
+
+      {{/* Email */}}
+      {{ with .contact_email }}
+      <div class="contact__email slide-up-delayed">
+        <p>Drop me a line:</p>
+        <a href="mailto:{{ . }}" class="contact__email-link">{{ . }}</a>
+      </div>
+      {{ end }}
+
+      {{/* Social links */}}
+      {{ with .social }}
+      <div class="social-section slide-up-delayed">
+        <p class="social-section__title">Or find me online</p>
+        {{ partial "social-links.html" . }}
+      </div>
+      {{ end }}
+
+    {{ else }}
+      <p class="empty-state slide-up-delayed">Contact information coming soon.</p>
+    {{ end }}
+
+    {{/* Newsletter CTA section — only renders if newsletter_action is set in site.yaml */}}
+    {{ with hugo.Data.site.newsletter_action }}
+    <div class="newsletter-cta slide-up-late">
+      <h2 class="newsletter-cta__heading">Stay in the Loop</h2>
+      <p class="newsletter-cta__text">Get notified about new releases, events, and behind-the-scenes updates.</p>
+      <form class="newsletter-cta__form" action="{{ . }}" method="post">
+        <input type="email" name="email" placeholder="your@email.com" class="newsletter-cta__input" aria-label="Email address for newsletter" required>
+        <button class="btn btn--accent" type="submit">Subscribe</button>
+      </form>
+    </div>
+    {{ end }}
+  </section>
+</div>
+{{ end }}

@@ -1,0 +1,8 @@
+{{/* ABOUTME: Reusable social links partial that renders a list of social media links. */}}
+{{/* ABOUTME: Expects the social object from hugo.Data.site.social as context. */}}
+
+<ul class="social-links">
+  {{ with .twitter }}<li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">Twitter</a></li>{{ end }}
+  {{ with .instagram }}<li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">Instagram</a></li>{{ end }}
+  {{ with .goodreads }}<li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">Goodreads</a></li>{{ end }}
+</ul>

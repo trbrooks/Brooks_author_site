@@ -1,0 +1,48 @@
+{{/* ABOUTME: Single book display card styled as a classified case file dossier. */}}
+{{/* ABOUTME: Shows cover with border treatment, title in Bebas Neue, venetian blind shadows, and amber hover glow. */}}
+
+<article class="book-card{{ if .featured }} book-card--featured{{ end }}">
+  {{/* Featured stamp */}}
+  {{ if .featured }}
+  <div class="book-card__stamp" aria-hidden="true">CASE FILE</div>
+  {{ end }}
+
+  {{/* Venetian blind decorative shadow */}}
+  <div class="book-card__blinds" aria-hidden="true"></div>
+
+  {{/* Cover image with fallback */}}
+  <div class="book-card__cover-wrapper">
+    {{ with .cover }}
+    <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Cover of {{ $.title }}">
+    {{ else }}
+    <div class="book-card__cover-placeholder">{{ .title }}</div>
+    {{ end }}
+  </div>
+
+  {{/* Title */}}
+  <h2 class="book-card__title">{{ .title }}</h2>
+
+  {{/* Tagline */}}
+  {{ with .tagline }}
+  <p class="book-card__tagline">{{ . }}</p>
+  {{ end }}
+
+  {{/* Year as file stamp */}}
+  {{ with .published }}
+  <p class="book-card__year">// {{ . }} //</p>
+  {{ end }}
+
+  {{/* Description */}}
+  {{ with .description }}
+  <p class="book-card__description">{{ . }}</p>
+  {{ end }}
+
+  {{/* Buy links */}}
+  {{ with .buy_links }}
+  <div class="book-card__links">
+    {{ range . }}
+    <a href="{{ .url }}" rel="noopener noreferrer" target="_blank">{{ .label }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+</article>
