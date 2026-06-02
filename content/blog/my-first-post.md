@@ -1,19 +1,11 @@
 ---
 title: "Welcome to My Author Site"
-date: 2024-01-15
-description: "My first blog post — and a quick guide to writing more."
+date: 2026-6-2
+description: "What this is site is about and for"
 ---
 
-Welcome to my brand new author website! I'm excited to have a home on the web where I can share updates about my writing, upcoming releases, and the occasional behind-the-scenes look at my creative process.
+I'm happy to launch my author website, not to be confused with my <a href="https://collegeofidaho.edu/people/t-r-brooks/">faculty page</a> at The College of Idaho.
 
-## How to Write a New Blog Post
+## Why this site?
 
-If you're reading this as the site owner, here's how to add your own posts:
-
-1. Create a new file in the `content/blog/` folder
-2. Name it something like `my-post-title.md`
-3. Add the front matter at the top (the part between the `---` lines) with a title and date
-4. Write your post in Markdown below the front matter
-5. Commit the file — your site will update automatically!
-
-That's it. Happy writing!
+This site is to promote my fiction writing. I've been a professor since 2018, and with those difficult first few years of new course preps and pursuing tenure out of the way, I've been writing stories and a novel. I see this as a natural extension of my <a href="https://scholar.google.com/citations?user=yY60kg8AAAAJ&hl=en">empirical work</a> and teaching, and I hope to say more about this in future posts. However, I also recognize that self-promotion is a necessary (if often uncomfortable, for me anyway) part of this work. So, using this handy template (created by Dylan Reed), that's what I'm trying to do. Now, to figure out how to set up the contact form...
