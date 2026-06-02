@@ -27,9 +27,6 @@ menu:
     - name: "About"
       url: "/about/"
       weight: 4
-    - name: "Social"
-      url: "/social/"
-      weight: 5
 #    - name: "Contact"
 #     url: "/contact/"
 #      weight: 5
