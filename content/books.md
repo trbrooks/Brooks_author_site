@@ -1,5 +1,5 @@
 ---
-title: "Stories"
+title: "Books"
 type: "page"
 layout: "books"
 ---
