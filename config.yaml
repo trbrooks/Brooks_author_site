@@ -4,7 +4,7 @@
 baseURL: "/"
 languageCode: "en-us"
 title: "T.R. Brooks"
-theme: "inkwell"
+theme: "paperback"
 
 disableKinds:
   - taxonomy
