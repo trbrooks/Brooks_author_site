@@ -1,1 +1,15 @@
+# ABOUTME: Your story catalog displayed on the Stories page and home page.
+# ABOUTME: Add a new story by copying a block below and changing the values.
 
+# To add a new story, copy everything from the dash (-) to the next dash
+# and fill in your story's details. Newest stories should go at the top.
+
+- title: "Diaschisis"
+  cover: "images/pills.jpg"
+  tagline: "A near-future novelette about taking chances, second chances, and second thoughts."
+  description: "Colm qualifies for an investigational treatment for his head injury, and the boundary between recovery and side effects begin to blur."
+  published: June 2026
+  buy_links:
+    - label: "Amazing Stories"
+      url: "https://amazingstories.com/2026/06/diaschisis-by-t-r-brooks-free-story/"
+  featured: true
