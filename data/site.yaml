@@ -16,6 +16,8 @@ photo: "images/headshot.jpg"
 # Your social media links (delete any you don't use)
 social:
   bluesky: "https://bsky.app/profile/tr-brooks.bsky.social"
+  cofi: "https://collegeofidaho.edu/people/t-r-brooks/"
+  googlescholar: "https://scholar.google.com/citations?user=yY60kg8AAAAJ&hl=en"
   
 # Email address shown on the Contact page
 contact_email: "trbrooks@gmail.com"
